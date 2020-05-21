@@ -1,5 +1,3 @@
-throw new Error('Not implemented.');
-
 export default function negative_binomial(p: number, n: number): number {
 
     if(n <= 0) {
