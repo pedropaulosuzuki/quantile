@@ -10,6 +10,7 @@ class Bernoulli {
         let array: number[] = [];
         
         for(let k = 0; k < size; k++) {
+            // generates a random number, then if it is less than p, return +true (1), else returns +false (0)
             array.push(+(Math.random() < this.p));
         }
         
@@ -28,15 +29,17 @@ class Bernoulli {
 
     // returns the mean of the bernoulli distribution
     get median(): number {
+        // For p < 0.5, the median is 0, for p > 0.5, the median is 1. For p = 0.5, the median is 0.5.
         return this.p < 0.5 ? 0 : this.p > 0.5 ? 1 : 0.5;
     }
 
     // returns the mode of the bernoulli distribution
     get mode(): number {
+        throw new Error('Not implemented.');
         return 0; // to implement
     }
 
-    // returns the probability density function for the bernoulli distribution
+    // returns the probability mass function for the bernoulli distribution
     get pmf(): (x: number) => number {
         return x => x === 1 ? this.p : x === 0 ? 1 - this.p : 0;
     }

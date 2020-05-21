@@ -44,6 +44,7 @@ class Gaussian {
 
     // returns the cumulative distribution function for the gaussian distribution
     get cdf(): (x: number) => number {
+        throw new Error('Not implemented.');
         return x => x; // to implement
     }
 }

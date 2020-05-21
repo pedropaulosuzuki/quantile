@@ -11,13 +11,15 @@ class Binomial {
 
         for(let n = 0; n < size; n++) {
             let count = 0;
+
+            // One bernoulli trial
             for(let k = 0; k < this.n; k++) {
                 count += +(Math.random() < this.p);
             }
             array.push(count);
         }
 
-        return new NumberSet(array); // to implement
+        return new NumberSet(array);
     }
 
     // returns the mean of the binomial distribution
@@ -32,21 +34,25 @@ class Binomial {
 
     // returns the mean of the binomial distribution
     get median(): number {
+        throw new Error('Not implemented.');
         return 0; // to implement
     }
 
     // returns the mode of the binomial distribution
     get mode(): number {
+        throw new Error('Not implemented.');
         return 0; // to implement
     }
 
-    // returns the probability density function for the binomial distribution
+    // returns the probability mass function for the binomial distribution
     get pmf(): (x: number) => number {
+        throw new Error('Not implemented.');
         return x => x; // to implement
     }
 
     // returns the cumulative distribution function for the binomial distribution
     get cdf(): (x: number) => number {
+        throw new Error('Not implemented.');
         return x => x; // to implement
     }
 }

@@ -8,24 +8,34 @@ export default class NumberSet {
     };
 
     constructor(array: number[]) {
+        // sorts the data before insertion, in order to falicitate new operations later. Implementation details may change.
         this.data = array.sort((x, y) => x - y);
     }
 
     push(array: number[]): NumberSet {
+        // sorts the updated data, in order to falicitate new operations later. Implementation details may change.
         this.data = [...this.data, ...array].sort((x, y) => x - y);
+
+        //returns the instance for chainability purposes
         return this;
     }
 
     apply(func: (x: number) => number): NumberSet {
+        // applies a function for each element in the array.
+        // mutates the existing numberset!!
         this.data = this.data.map(x => func(x));
+
+        // returns the instance for chainability purposes.
         return this;
     }
 
     map(func: (x: number) => number): NumberSet {
+        // does not mutate the current numberset
         return new NumberSet(this.data.map(func));
     }
 
     sum(func: (x: number) => number = x => x): number {
+        // sums all the elements in the numberset
         return this.data.reduce((x, y) => x + func(y), 0);
     }
 
@@ -44,7 +54,6 @@ export default class NumberSet {
             return this.data[this.size - 1];
         }
 
-        
         const position = Math.floor(q * (this.size - 1));
         console.log('position', position, 'size', this.size);
 
@@ -54,6 +63,7 @@ export default class NumberSet {
     }
 
     range(start: number, end: number): NumberSet {
+        // filters a range of numbers in the numberset.
         return new NumberSet(this.data.filter(x => (x >= start) && (x <= end)));
     }
 
