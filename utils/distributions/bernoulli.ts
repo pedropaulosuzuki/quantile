@@ -1,20 +1,9 @@
 import NumberSet from '../number_set.ts';
+import { DiscreteDistribution } from '../interfaces/distribution.ts';
 
-class Bernoulli {
+class Bernoulli implements DiscreteDistribution {
     constructor(private p = 0.5) {
 
-    }
-
-    // Returns n samples from the bernoulli distribution
-    sample(size: number = 100): NumberSet {
-        let array: number[] = [];
-        
-        for(let k = 0; k < size; k++) {
-            // generates a random number, then if it is less than p, return +true (1), else returns +false (0)
-            array.push(+(Math.random() < this.p));
-        }
-        
-        return new NumberSet(array);
     }
 
     // returns the mean of the bernoulli distribution
@@ -37,6 +26,18 @@ class Bernoulli {
     get mode(): number {
         throw new Error('Not implemented.');
         return 0; // to implement
+    }
+
+    // Returns n samples from the bernoulli distribution
+    sample(size: number = 100): NumberSet {
+        let array: number[] = [];
+        
+        for(let k = 0; k < size; k++) {
+            // generates a random number, then if it is less than p, return +true (1), else returns +false (0)
+            array.push(+(Math.random() < this.p));
+        }
+        
+        return new NumberSet(array);
     }
 
     // returns the probability mass function for the bernoulli distribution

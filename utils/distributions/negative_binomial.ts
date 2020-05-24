@@ -1,8 +1,33 @@
 import NumberSet from "../number_set.ts";
+import { DiscreteDistribution } from "../interfaces/distribution.ts";
 
-class NegativeBinomial {
+class NegativeBinomial implements DiscreteDistribution {
     constructor() {
         throw new Error('Not implemented.');
+    }
+
+    // returns the mean of the negative binomial distribution
+    get mean(): number {
+        throw new Error('Not implemented.');
+        return 0;
+    }
+
+    // returns the variance of the negative binomial distribution
+    get variance(): number {
+        throw new Error('Not implemented.');
+        return 0;
+    }
+
+    // returns the median of the negative binomial distribution
+    get median(): number {
+        throw new Error('Not implemented.');
+        return 0;
+    }
+
+    // returns the mode of the negative binomial distribution
+    get mode(): number {
+        throw new Error('Not implemented.');
+        return 0;
     }
 
     // Returns n samples from the negative binomial distribution
@@ -30,28 +55,16 @@ class NegativeBinomial {
         return new NumberSet([]);
     }
 
-    // returns the mean of the negative binomial distribution
-    get mean(): number {
+    // returns the probability mass function for the negative binomial distribution
+    get pmf(): (x: number) => number {
         throw new Error('Not implemented.');
-        return 0;
+        return x => x;
     }
 
-    // returns the variance of the negative binomial distribution
-    get variance(): number {
+    // returns the cumulative distribution function for the negative binomial distribution
+    get cdf(): (x: number) => number {
         throw new Error('Not implemented.');
-        return 0;
-    }
-
-    // returns the median of the negative binomial distribution
-    get median(): number {
-        throw new Error('Not implemented.');
-        return 0;
-    }
-
-    // returns the mode of the negative binomial distribution
-    get mode(): number {
-        throw new Error('Not implemented.');
-        return 0;
+        return x => x;
     }
 }
 

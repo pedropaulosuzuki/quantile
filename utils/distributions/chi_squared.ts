@@ -1,14 +1,9 @@
 import NumberSet from "../number_set.ts";
+import { ContinuousDistribution } from "../interfaces/distribution.ts";
 
-class ChiSquared {
+class ChiSquared implements ContinuousDistribution {
     constructor(private k: number) {
         throw new Error('Not implemented.');
-    }
-
-    // Returns n samples from the chi-squared distribution
-    sample(size: number = 100): NumberSet {
-        throw new Error('Not implemented.');
-        return new NumberSet([]);
     }
 
     // returns the mean of the chi-squared distribution
@@ -30,6 +25,24 @@ class ChiSquared {
     // returns the mode of the chi-squared distribution
     get mode(): number {
         return Math.max(this.k - 2, 0);
+    }
+
+    // Returns n samples from the chi-squared distribution
+    sample(size: number = 100): NumberSet {
+        throw new Error('Not implemented.');
+        return new NumberSet([]);
+    }
+
+    // returns the probability density function for the chi-squared distribution
+    get pdf(): (x: number) => number {
+        throw new Error('Not implemented.');
+        return x => x;
+    }
+
+    // returns the cumulative distribution function for the chi-squared distribution
+    get cdf(): (x: number) => number {
+        throw new Error('Not implemented.');
+        return x => x;
     }
 }
 

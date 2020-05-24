@@ -1,14 +1,9 @@
 import NumberSet from "../number_set.ts";
+import { ContinuousDistribution } from "../interfaces/distribution.ts";
 
-class Exponential {
+class Exponential implements ContinuousDistribution {
     constructor(private lambda: number) {
         throw new Error('Not implemented.');
-    }
-
-    // Returns n samples from the exponential distribution
-    sample(size: number = 100): NumberSet {
-        throw new Error('Not implemented.');
-        return new NumberSet([]);
     }
 
     // returns the mean of the exponential distribution
@@ -33,6 +28,24 @@ class Exponential {
     get mode(): number {
         throw new Error('Not implemented.');
         return 0;
+    }
+
+    // Returns n samples from the exponential distribution
+    sample(size: number = 100): NumberSet {
+        throw new Error('Not implemented.');
+        return new NumberSet([]);
+    }
+
+    // returns the probability density function for the exponential distribution
+    get pdf(): (x: number) => number {
+        throw new Error('Not implemented.');
+        return x => x;
+    }
+
+    // returns the cumulative distribution function for the exponential distribution
+    get cdf(): (x: number) => number {
+        throw new Error('Not implemented.');
+        return x => x;
     }
 }
 

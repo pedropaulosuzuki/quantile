@@ -1,14 +1,9 @@
 import NumberSet from "../number_set.ts";
+import { ContinuousDistribution } from "../interfaces/distribution.ts";
 
-class F {
+class F implements ContinuousDistribution {
     constructor(private d1: number, private d2: number) {
         throw new Error('Not implemented.');
-    }
-
-    // Returns n samples from the F distribution
-    sample(size: number = 100): NumberSet {
-        throw new Error('Not implemented.');
-        return new NumberSet([]);
     }
 
     // returns the mean of the F distribution
@@ -33,6 +28,24 @@ class F {
     get mode(): number {
         throw new Error('Not implemented.');
         return 0;
+    }
+
+    // Returns n samples from the F distribution
+    sample(size: number = 100): NumberSet {
+        throw new Error('Not implemented.');
+        return new NumberSet([]);
+    }
+
+    // returns the probability density function for the F distribution
+    get pdf(): (x: number) => number {
+        throw new Error('Not implemented.');
+        return x => x;
+    }
+
+    // returns the cumulative distribution function for the F distribution
+    get cdf(): (x: number) => number {
+        throw new Error('Not implemented.');
+        return x => x;
     }
 }
 

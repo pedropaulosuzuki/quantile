@@ -1,20 +1,8 @@
 import NumberSet from '../number_set.ts';
+import { ContinuousDistribution } from '../interfaces/distribution.ts';
 
-class Gaussian {
+class Gaussian implements ContinuousDistribution {
     constructor(private _mean: number = 0, private stdev: number = 1) {
-    }
-
-    // Returns n samples from the gaussian distribution
-    sample(size: number = 100): NumberSet {
-        let array: number[] = [];
-
-        for(let i = 0; i < size; i++) {
-            const result = this._mean + this.stdev * (-2 * Math.log(Math.random())) ** 0.5 * Math.cos(2 * Math.PI * Math.random());
-
-            array.push(result);
-        }
-
-        return new NumberSet(array);
     }
 
     // returns the mean of the gaussian distribution
@@ -35,6 +23,19 @@ class Gaussian {
     // returns the mode of the gaussian distribution
     get mode(): number {
         return this._mean;
+    }
+
+    // Returns n samples from the gaussian distribution
+    sample(size: number = 100): NumberSet {
+        let array: number[] = [];
+
+        for(let i = 0; i < size; i++) {
+            const result = this._mean + this.stdev * (-2 * Math.log(Math.random())) ** 0.5 * Math.cos(2 * Math.PI * Math.random());
+
+            array.push(result);
+        }
+
+        return new NumberSet(array);
     }
 
     // returns the probability density function for the gaussian distribution

@@ -1,25 +1,9 @@
 import NumberSet from '../number_set.ts';
+import { DiscreteDistribution } from '../interfaces/distribution.ts';
 
-class Binomial {
+class Binomial implements DiscreteDistribution {
     constructor(private p: number = 0.5, private n: number = 10) {
 
-    }
-
-    // Returns n samples from the binomial distribution
-    sample(size: number = 100): NumberSet {
-        const array = [];
-
-        for(let n = 0; n < size; n++) {
-            let count = 0;
-
-            // One bernoulli trial
-            for(let k = 0; k < this.n; k++) {
-                count += +(Math.random() < this.p);
-            }
-            array.push(count);
-        }
-
-        return new NumberSet(array);
     }
 
     // returns the mean of the binomial distribution
@@ -42,6 +26,23 @@ class Binomial {
     get mode(): number {
         throw new Error('Not implemented.');
         return 0; // to implement
+    }
+
+    // Returns n samples from the binomial distribution
+    sample(size: number = 100): NumberSet {
+        const array = [];
+
+        for(let n = 0; n < size; n++) {
+            let count = 0;
+
+            // One bernoulli trial
+            for(let k = 0; k < this.n; k++) {
+                count += +(Math.random() < this.p);
+            }
+            array.push(count);
+        }
+
+        return new NumberSet(array);
     }
 
     // returns the probability mass function for the binomial distribution
