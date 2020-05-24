@@ -55,7 +55,6 @@ export default class NumberSet {
         }
 
         const position = Math.floor(q * (this.size - 1));
-        console.log('position', position, 'size', this.size);
 
         const factor = +(q * (this.size - 1) - position).toFixed(10);
 
@@ -85,7 +84,7 @@ export default class NumberSet {
         return this.data;
     }
 
-    get dataSet(): Map<number, number> {
+    get dataset(): Map<number, number> {
         const map = new Map();
 
         for(const number of this.data) {
@@ -117,7 +116,7 @@ export default class NumberSet {
 
     get mode(): Map<number, number> {
         this.throwIfEmpty('mode');
-        let map = this.dataSet;
+        let map = this.dataset;
 
         const array = [...map.entries()];
         const max = Math.max(...array.map(item => item[1]));
