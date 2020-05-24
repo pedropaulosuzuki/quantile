@@ -33,7 +33,7 @@ let q4 = data.quantile(1);
 
 #### It is also possible to:
 
-Mutate every element in the set through a callback function:
+Mutate every element in the dataset through a callback function:
 ```ts
 import quantile from './quantile.ts';
 
@@ -45,7 +45,7 @@ data.apply(x => x - data.mean);
 
 console.log('data', data.array); // [-3, -2, -1, 0, 1, 2, 3]
 ```
-Map the existing set into a new set through a callback function:
+Map the existing dataset into a new dataset through a callback function:
 ```ts
 import quantile from './quantile.ts';
 
