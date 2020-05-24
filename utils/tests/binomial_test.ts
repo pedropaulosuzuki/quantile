@@ -24,5 +24,5 @@ export default function test_binomial() {
     console.assert(binomial(0.22).cdf(0) === 0.78, 'Error on calculating cdf of binomial distribution at 0.');
     console.assert(binomial(0.53).cdf(0.4) === 0.47, 'Error on calculating cdf of binomial distribution between 0 and 1.');
     console.assert(binomial(0.81).cdf(1) === 1, 'Error on calculating cdf of binomial distribution at 1.');
-    console.assert(binomial(0.16).cdf(1.5) === 1, 'Error on calculating cdf of bernoulli distribution above 1.'); */
+    console.assert(binomial(0.16).cdf(1.5) === 1, 'Error on calculating cdf of binomial distribution above 1.'); */
 }
