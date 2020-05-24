@@ -124,4 +124,13 @@ export default class NumberSet {
 
         return filtered;
     }
+
+    *[Symbol.iterator](): Generator<number, void, unknown> {
+        // still deciding on which of the methods below to use.
+        // for(const value of this.data) yield value; // More elegant, but half performance.
+        let index = 0;
+        while(index < this.size) {
+            yield this.data[index++]; // Less elegant, but double performance.
+        }
+    }
 }
