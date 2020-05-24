@@ -4,6 +4,6 @@ class Poisson {
     }
 }
 
-export default function poisson(lambda: number) {
+export default function poisson(lambda: number): Poisson {
     return new Poisson(lambda);
 };

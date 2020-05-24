@@ -50,7 +50,7 @@ class Gaussian {
 }
 
 // function declaration uses variance, class declaration uses stdev
-export default function gaussian(mean: number = 0.5, variance: number = 10) {
+export default function gaussian(mean: number = 0.5, variance: number = 10): Gaussian {
     if(variance <= 0) {
         throw new Error('Insert a positive variance for the gaussian distribution.');
     }

@@ -5,3 +5,5 @@ import binomial_test from "./tests/binomial_test.ts";
 uniform_test();
 bernoulli_test();
 binomial_test();
+
+console.log('All tests ran successfully.');

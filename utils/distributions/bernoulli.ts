@@ -50,7 +50,7 @@ class Bernoulli {
     }
 }
 
-export default function bernoulli(p: number = 0.5) {
+export default function bernoulli(p: number = 0.5): Bernoulli {
     if(p < 0 || p > 1) {
         throw new Error('Insert a probability between 0 and 1 for the bernoulli distribution.');
     }

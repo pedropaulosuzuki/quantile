@@ -48,6 +48,6 @@ class Uniform {
     }
 }
 
-export default function uniform(start: number = 0, end: number = 1) {
+export default function uniform(start: number = 0, end: number = 1): Uniform {
     return new Uniform(start, end);
 };

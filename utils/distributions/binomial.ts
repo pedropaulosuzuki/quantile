@@ -57,7 +57,7 @@ class Binomial {
     }
 }
 
-export default function binomial(p: number = 0.5, n: number = 10) {
+export default function binomial(p: number = 0.5, n: number = 10): Binomial {
     if(p < 0 || p > 1) {
         throw new Error('Insert a probability between 0 and 1 for the binomial distribution.');
     }
