@@ -8,20 +8,17 @@ class Rayleigh implements ContinuousDistribution {
 
     // returns the mean of the rayleigh distribution
     get mean(): number {
-        throw new Error('Not implemented.');
-        return 0;
+        return this.scale * (Math.PI / 2) ** 0.5;
     }
 
     // returns the variance of the rayleigh distribution
     get variance(): number {
-        throw new Error('Not implemented.');
-        return 0;
+        return this.scale ** 2 * 1 / 2 * (4 - Math.PI);
     }
 
     // returns the median of the rayleigh distribution
     get median(): number {
-        throw new Error('Not implemented.');
-        return 0;
+        return this.scale * (2 * Math.log(2)) ** 0.5;
     }
 
     // returns the mode of the rayleigh distribution
@@ -31,33 +28,33 @@ class Rayleigh implements ContinuousDistribution {
 
     // Returns one sample from the rayleigh distribution
     get sample(): number {
-        throw new Error('Not implemented.');
-        return 0;
+        return this.scale * (-2 * Math.log(Math.random())) ** 0.5;
     }
 
     // Returns n samples from the rayleigh distribution
     samples(size: number = 100): NumberSet {
-        throw new Error('Not implemented.');
-        return new NumberSet([]);
+        let array: number[] = [];
+
+        for(let i = 0; i < size; i++) {
+            array.push(this.sample);
+        }
+
+        return new NumberSet(array);
     }
 
-    // returns the probability density function for the weibull distribution
+    // returns the probability density function for the rayleigh distribution
     get pdf(): (x: number) => number {
-        throw new Error('Not implemented.');
-        return x => x;
+        return x => (1 / this.scale) ** 2 * x * Math.exp(-1 / 2 * (x / this.scale) ** 2);
     }
 
-    // returns the cumulative distribution function for the weibull distribution
+    // returns the cumulative distribution function for the rayleigh distribution
     get cdf(): (x: number) => number {
-        throw new Error('Not implemented.');
-        return x => x;
+        return x => 1 - Math.exp(-1 / 2 * (x / this.scale) ** 2);
     }
 }
 
 export default function rayleigh(scale: number = 1): Rayleigh {
-    if(scale <= 0) {
-        throw new Error('');
-    }
+    if (scale <= 0) throw new Error('Please insert a positive scale parameter for the rayleigh distribution.');
 
     return new Rayleigh(scale);
 }
