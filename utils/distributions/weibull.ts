@@ -2,7 +2,7 @@ import NumberSet from '../number_set.ts';
 import { ContinuousDistribution } from "../interfaces/distribution.ts";
 
 class Weibull implements ContinuousDistribution {
-    constructor(private scale: number, private shape: number) {
+    constructor(private scale: number, private shape: number, private location: number) {
         throw new Error('Not implemented.');
     }
 
@@ -55,6 +55,6 @@ class Weibull implements ContinuousDistribution {
     }
 }
 
-export default function weibull(scale: number, shape: number): Weibull {
-    return new Weibull(scale, shape);
+export default function weibull(scale: number, shape: number = 1, location: number = 0): Weibull {
+    return new Weibull(scale, shape, location);
 }
