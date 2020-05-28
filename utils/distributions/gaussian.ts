@@ -25,14 +25,17 @@ class Gaussian implements ContinuousDistribution {
         return this._mean;
     }
 
+    // Returns one sample from the gaussian distribution
+    get sample(): number {
+        return this._mean + this.stdev * (-2 * Math.log(Math.random())) ** 0.5 * Math.cos(2 * Math.PI * Math.random());
+    }
+
     // Returns n samples from the gaussian distribution
-    sample(size: number = 100): NumberSet {
+    samples(size: number = 100): NumberSet {
         let array: number[] = [];
 
         for(let i = 0; i < size; i++) {
-            const result = this._mean + this.stdev * (-2 * Math.log(Math.random())) ** 0.5 * Math.cos(2 * Math.PI * Math.random());
-
-            array.push(result);
+            array.push(this.sample);
         }
 
         return new NumberSet(array);

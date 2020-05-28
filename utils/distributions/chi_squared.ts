@@ -27,8 +27,14 @@ class ChiSquared implements ContinuousDistribution {
         return Math.max(this.k - 2, 0);
     }
 
+    // Returns one sample from the chi-squared distribution
+    get sample(): number {
+        throw new Error('Not implemented.');
+        return 0;
+    }
+
     // Returns n samples from the chi-squared distribution
-    sample(size: number = 100): NumberSet {
+    samples(size: number = 100): NumberSet {
         throw new Error('Not implemented.');
         return new NumberSet([]);
     }

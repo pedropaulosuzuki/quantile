@@ -5,7 +5,8 @@ export interface DiscreteDistribution {
     readonly variance: number,
     readonly median: number,
     readonly mode: number
-    sample(size: number): NumberSet,
+    readonly sample: number,
+    samples(size: number): NumberSet,
     pmf(x: number): number,
     cdf(x: number): number
 }
@@ -15,7 +16,8 @@ export interface ContinuousDistribution {
     readonly variance: number,
     readonly median: number,
     readonly mode: number
-    sample(size: number): NumberSet,
+    readonly sample: number,
+    samples(size: number): NumberSet,
     pdf(x: number): number,
     cdf(x: number): number
 }

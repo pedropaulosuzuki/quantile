@@ -30,8 +30,14 @@ class Poisson implements DiscreteDistribution {
         return 0;
     }
 
+    // Returns one sample from the poisson distribution
+    get sample(): number {
+        throw new Error('Not implemented.');
+        return 0;
+    }
+
     // Returns n samples from the poisson distribution
-    sample(size: number = 100): NumberSet {
+    samples(size: number = 100): NumberSet {
         throw new Error('Not implemented.');
         return new NumberSet([]);
     }

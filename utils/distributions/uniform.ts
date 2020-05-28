@@ -25,13 +25,18 @@ class Uniform implements ContinuousDistribution {
     get mode(): number {
         return this.mean;
     }
+
+    // Returns one sample from the uniform distribution
+    get sample(): number {
+        return this.start + this.end * Math.random();
+    }
     
     // Returns n samples from the uniform distribution
-    sample(size: number = 100): NumberSet {
+    samples(size: number = 100): NumberSet {
         let array: number[] = [];
         
         for(let k = 0; k < size; k++) {
-            array.push(this.start + this.end * Math.random());
+            array.push(this.sample);
         }
         
         return new NumberSet(array);

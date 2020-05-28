@@ -28,18 +28,24 @@ class Binomial implements DiscreteDistribution {
         return 0; // to implement
     }
 
+    // Returns one sample from the binomial distribution
+    get sample(): number {
+        let count = 0;
+
+        for(let k = 0; k < this.n; k++) {
+            // One bernoulli trial
+            count += +(Math.random() < this.p);
+        }
+
+        return count;
+    }
+
     // Returns n samples from the binomial distribution
-    sample(size: number = 100): NumberSet {
+    samples(size: number = 100): NumberSet {
         const array = [];
 
         for(let n = 0; n < size; n++) {
-            let count = 0;
-
-            // One bernoulli trial
-            for(let k = 0; k < this.n; k++) {
-                count += +(Math.random() < this.p);
-            }
-            array.push(count);
+            array.push(this.sample);
         }
 
         return new NumberSet(array);

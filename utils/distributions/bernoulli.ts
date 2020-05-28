@@ -28,13 +28,18 @@ class Bernoulli implements DiscreteDistribution {
         return 0; // to implement
     }
 
+    // Returns one sample from the bernoulli distribution
+    get sample(): number {
+        // generates a random number, then if it is less than p, return +true (1), else returns +false (0)
+        return +(Math.random() < this.p);
+    }
+
     // Returns n samples from the bernoulli distribution
-    sample(size: number = 100): NumberSet {
+    samples(size: number = 100): NumberSet {
         let array: number[] = [];
         
         for(let k = 0; k < size; k++) {
-            // generates a random number, then if it is less than p, return +true (1), else returns +false (0)
-            array.push(+(Math.random() < this.p));
+            array.push(this.sample);
         }
         
         return new NumberSet(array);

@@ -30,8 +30,14 @@ class Hypergeometric implements DiscreteDistribution {
         return 0;
     }
 
+    // Returns one sample from the hypergeometric distribution
+    get sample(): number {
+        throw new Error('Not implemented.');
+        return 0;
+    }
+
     // Returns n samples from the hypergeometric distribution
-    sample(size: number = 100): NumberSet {
+    samples(size: number = 100): NumberSet {
         throw new Error('Not implemented.');
         return new NumberSet([]);
     }
