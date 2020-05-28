@@ -1,12 +1,14 @@
-import bernoulli_test from "./tests/bernoulli_test.ts";
-import binomial_test from "./tests/binomial_test.ts";
-import rayleigh_test from "./tests/rayleigh_test.ts";
-import uniform_test from "./tests/uniform_test.ts";
+import test_bernoulli from "./tests/test_bernoulli.ts";
+import test_beta from "./tests/test_beta.ts";
+import test_binomial from "./tests/test_binomial.ts";
+import test_rayleigh from "./tests/test_rayleigh.ts";
+import test_uniform from "./tests/test_uniform.ts";
 
-bernoulli_test();
-binomial_test();
-rayleigh_test();
-uniform_test();
+test_bernoulli();
+test_beta();
+test_binomial();
+test_rayleigh();
+test_uniform();
 
 
 console.log('All tests ran successfully.');
