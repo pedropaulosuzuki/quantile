@@ -84,7 +84,11 @@ export default class NumberSet {
         return this.data;
     }
 
-    get dataset(): Map<number, number> {
+    // Returns a map containing the values of the dataset with their occurance count
+    // Example:
+    // let datamap = new NumberSet([1, 1, 2, 1, 3]).datamap;
+    // console.log(datamap) => Map { 1 => 3, 2 => 1, 3 => 1 }
+    get datamap(): Map<number, number> {
         const map = new Map();
 
         for(const number of this.data) {
@@ -116,7 +120,7 @@ export default class NumberSet {
 
     get mode(): Map<number, number> {
         this.throwIfEmpty('mode');
-        let map = this.dataset;
+        let map = this.datamap;
 
         const array = [...map.entries()];
         const max = Math.max(...array.map(item => item[1]));
@@ -132,5 +136,9 @@ export default class NumberSet {
         while(index < this.size) {
             yield this.data[index++]; // Less elegant, but double performance.
         }
+    }
+    
+    toString(): string {
+        return 'Numberset: <' + this.array.toString().split(',').join(', ') + '>';
     }
 }
