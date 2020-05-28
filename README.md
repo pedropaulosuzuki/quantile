@@ -82,7 +82,7 @@ let data = new NumberSet([1, 2, 3, 4, 5, 6, 7]);
   
 let sample = data.sample(100);
 
-console.log(sample.dataset);
+console.log(sample.datamap);
 ```
 Get an array or a JS Map representation of the dataset:
 ```ts
@@ -93,9 +93,9 @@ const { NumberSet } = quantile;
 let data = new NumberSet([1, 2, 3, 4, 5, 6, 7]);
   
 let array = data.array;
-let dataset = data.dataset;
+let datamap = data.datamap;
 
-console.log({array, dataset});
+console.log({array, datamap});
 ```
 Get a custom sum from the dataset:
 ```ts
