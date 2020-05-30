@@ -72,7 +72,7 @@ let filtered = data.range(q1, q3);
 
 console.log(filtered.array); // [3, 4, 5]
 ```
-Get n samples from the dataset:
+Get one or N samples from the dataset:
 ```ts
 import quantile from './quantile.ts';
 
@@ -80,9 +80,11 @@ const { NumberSet } = quantile;
 
 let data = new NumberSet([1, 2, 3, 4, 5, 6, 7]);
   
-let sample = data.sample(100);
+let sample = data.sample;
+let samples = data.samples(100);
 
-console.log(sample.datamap);
+console.log({sample});
+console.log('100 samples:', sample.datamap);
 ```
 Get an array or a JS Map representation of the dataset:
 ```ts
