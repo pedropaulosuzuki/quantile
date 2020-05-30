@@ -6,9 +6,9 @@ export interface DiscreteDistribution {
     readonly median: number,
     readonly mode: number
     readonly sample: number,
-    samples(size: number): NumberSet,
-    pmf(x: number): number,
-    cdf(x: number): number
+    readonly samples: (size: number) => NumberSet,
+    readonly pmf: (x: number) => number,
+    readonly cdf: (x: number) => number
 }
 
 export interface ContinuousDistribution {
@@ -17,7 +17,7 @@ export interface ContinuousDistribution {
     readonly median: number,
     readonly mode: number
     readonly sample: number,
-    samples(size: number): NumberSet,
-    pdf(x: number): number,
-    cdf(x: number): number
+    readonly samples: (size: number) => NumberSet,
+    readonly pdf: (x: number) => number,
+    readonly cdf: (x: number) => number
 }

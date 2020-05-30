@@ -37,9 +37,16 @@ class Weibull implements ContinuousDistribution {
     }
 
     // Returns n samples from the weibull distribution
-    samples(size: number = 100): NumberSet {
-        throw new Error('Not implemented.');
-        return new NumberSet([]);
+    get samples(): (size: number) => NumberSet {
+        return (size: number = 100) => {
+            let array: number[] = [];
+            
+            for(let k = 0; k < size; k++) {
+                array.push(this.sample);
+            }
+            
+            return new NumberSet(array);
+        }
     }
 
     // returns the probability density function for the weibull distribution

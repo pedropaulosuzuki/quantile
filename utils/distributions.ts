@@ -5,6 +5,7 @@ import chi_squared from './distributions/chi_squared.ts';  // not implemented
 import exponential from './distributions/exponential.ts';  // not implemented
 import f from './distributions/f.ts';  // not implemented
 import gaussian from './distributions/gaussian.ts';
+import geometric from './distributions/geometric.ts';
 import hypergeometric from './distributions/hypergeometric.ts';  // not implemented
 import kumaraswamy from './distributions/kumaraswamy.ts';  // not implemented
 import logistic from './distributions/logistic.ts';  // not implemented
@@ -17,4 +18,4 @@ import t from './distributions/t.ts'  // not implemented
 import uniform from './distributions/uniform.ts';
 import weibull from './distributions/weibull.ts'; // not implemented
 
-export default {bernoulli, beta, binomial, chi_squared, exponential, f, gaussian, hypergeometric, kumaraswamy, logistic, log_normal, negative_binomial, poisson, rayleigh, skellam, t, uniform, weibull};
+export default {bernoulli, beta, binomial, chi_squared, exponential, f, gaussian, geometric, hypergeometric, kumaraswamy, logistic, log_normal, negative_binomial, poisson, rayleigh, skellam, t, uniform, weibull};

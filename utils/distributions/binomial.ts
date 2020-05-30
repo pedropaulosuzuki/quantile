@@ -41,14 +41,16 @@ class Binomial implements DiscreteDistribution {
     }
 
     // Returns n samples from the binomial distribution
-    samples(size: number = 100): NumberSet {
-        const array = [];
-
-        for(let n = 0; n < size; n++) {
-            array.push(this.sample);
+    get samples(): (size: number) => NumberSet {
+        return (size: number = 100) => {
+            let array: number[] = [];
+            
+            for(let k = 0; k < size; k++) {
+                array.push(this.sample);
+            }
+            
+            return new NumberSet(array);
         }
-
-        return new NumberSet(array);
     }
 
     // returns the probability mass function for the binomial distribution

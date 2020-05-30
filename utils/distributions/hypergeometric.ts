@@ -37,9 +37,16 @@ class Hypergeometric implements DiscreteDistribution {
     }
 
     // Returns n samples from the hypergeometric distribution
-    samples(size: number = 100): NumberSet {
-        throw new Error('Not implemented.');
-        return new NumberSet([]);
+    get samples(): (size: number) => NumberSet {
+        return (size: number = 100) => {
+            let array: number[] = [];
+            
+            for(let k = 0; k < size; k++) {
+                array.push(this.sample);
+            }
+            
+            return new NumberSet(array);
+        }
     }
 
     // returns the probability mass function for the hypergeometric distribution

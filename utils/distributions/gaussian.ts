@@ -31,14 +31,16 @@ class Gaussian implements ContinuousDistribution {
     }
 
     // Returns n samples from the gaussian distribution
-    samples(size: number = 100): NumberSet {
-        let array: number[] = [];
-
-        for(let i = 0; i < size; i++) {
-            array.push(this.sample);
+    get samples(): (size: number) => NumberSet {
+        return (size: number = 100) => {
+            let array: number[] = [];
+            
+            for(let k = 0; k < size; k++) {
+                array.push(this.sample);
+            }
+            
+            return new NumberSet(array);
         }
-
-        return new NumberSet(array);
     }
 
     // returns the probability density function for the gaussian distribution

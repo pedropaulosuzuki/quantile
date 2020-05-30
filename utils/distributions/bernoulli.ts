@@ -35,14 +35,16 @@ class Bernoulli implements DiscreteDistribution {
     }
 
     // Returns n samples from the bernoulli distribution
-    samples(size: number = 100): NumberSet {
-        let array: number[] = [];
-        
-        for(let k = 0; k < size; k++) {
-            array.push(this.sample);
+    get samples(): (size: number) => NumberSet {
+        return (size: number = 100) => {
+            let array: number[] = [];
+            
+            for(let k = 0; k < size; k++) {
+                array.push(this.sample);
+            }
+            
+            return new NumberSet(array);
         }
-        
-        return new NumberSet(array);
     }
 
     // returns the probability mass function for the bernoulli distribution
