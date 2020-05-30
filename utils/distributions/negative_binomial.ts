@@ -2,7 +2,7 @@ import NumberSet from "../number_set.ts";
 import { DiscreteDistribution } from "../interfaces/distribution.ts";
 
 class NegativeBinomial implements DiscreteDistribution {
-    constructor() {
+    constructor(private failures: number, private p: number) {
         throw new Error('Not implemented.');
     }
 
@@ -74,6 +74,8 @@ class NegativeBinomial implements DiscreteDistribution {
     }
 }
 
-export default function negative_binomial(): NegativeBinomial {
-    return new NegativeBinomial();
+export default function negative_binomial(failures: number, p: number): NegativeBinomial {
+    if (failures <= 0) throw new Error('Insert a positive number of failures for the negative binomial distribution.');
+    if (p <= 0 || p > 1) throw new Error('Insert a valid success probability for the negative binomial distribution. Use a value between 0 and 1.');
+    return new NegativeBinomial(failures, p);
 };

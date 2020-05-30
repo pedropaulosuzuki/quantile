@@ -54,5 +54,6 @@ class Poisson implements DiscreteDistribution {
 }
 
 export default function poisson(rate: number): Poisson {
+    if(rate <= 0) throw new Error('Insert a positive rate for the Poisson distribution.');
     return new Poisson(rate);
 };

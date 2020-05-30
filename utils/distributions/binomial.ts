@@ -65,11 +65,7 @@ class Binomial implements DiscreteDistribution {
 }
 
 export default function binomial(p: number = 0.5, n: number = 10): Binomial {
-    if(p < 0 || p > 1) {
-        throw new Error('Insert a probability between 0 and 1 for the binomial distribution.');
-    }
-    if(n <= 0) {
-        throw new Error('Insert a positive number of trials for the binomial distribution.');
-    }
+    if(p < 0 || p > 1) throw new Error('Insert a probability between 0 and 1 for the binomial distribution.');
+    if(n <= 0) throw new Error('Insert a positive number of trials for the binomial distribution.');
     return new Binomial(p, n);
 };

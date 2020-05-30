@@ -55,6 +55,7 @@ class Hypergeometric implements DiscreteDistribution {
     }
 }
 
+// remember to change names for those parameters
 export default function hypergeometric(N: number, K: number, n: number): Hypergeometric {
     return new Hypergeometric(N, K, n);
 };

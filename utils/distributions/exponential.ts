@@ -2,7 +2,7 @@ import NumberSet from "../number_set.ts";
 import { ContinuousDistribution } from "../interfaces/distribution.ts";
 
 class Exponential implements ContinuousDistribution {
-    constructor(private lambda: number) {
+    constructor(private rate: number) {
         throw new Error('Not implemented.');
     }
 
@@ -55,6 +55,7 @@ class Exponential implements ContinuousDistribution {
     }
 }
 
-export default function exponential(lambda: number = 2): Exponential {
-    return new Exponential(lambda);
+export default function exponential(rate: number = 2): Exponential {
+    if(rate <= 0) throw new Error('Insert a positive rate for the exponential distribution.');
+    return new Exponential(rate);
 };
