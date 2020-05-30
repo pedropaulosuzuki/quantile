@@ -2,14 +2,13 @@ import NumberSet from "../number_set.ts";
 import { ContinuousDistribution } from "../interfaces/distribution.ts";
 
 class StudentT implements ContinuousDistribution {
-    constructor(private df: number) {
+    constructor(private df: number, private location: number, private scale: number) {
         throw new Error('Not implemented.');
     }
 
     // returns the mean of the student t distribution
     get mean(): number {
-        throw new Error('Not implemented.');
-        return 0;
+        return this.location;
     }
 
     // returns the variance of the student t distribution
@@ -20,14 +19,12 @@ class StudentT implements ContinuousDistribution {
 
     // returns the median of the student t distribution
     get median(): number {
-        throw new Error('Not implemented.');
-        return 0;
+        return this.location;
     }
 
     // returns the mode of the student t distribution
     get mode(): number {
-        throw new Error('Not implemented.');
-        return 0;
+        return this.location;
     }
 
     // Returns one sample from the student t distribution
@@ -55,6 +52,6 @@ class StudentT implements ContinuousDistribution {
     }
 }
 
-export default function t(df: number = 10): StudentT {
-    return new StudentT(df);
+export default function t(df: number = 10, location: number = 0, scale: number = 1): StudentT {
+    return new StudentT(df, location, scale);
 };
