@@ -66,20 +66,11 @@ export default class NumberSet {
         return new NumberSet(this.data.filter(x => (x >= start) && (x <= end)));
     }
 
-    sample(n: number): NumberSet {
-        let array: number[] = [];
-        for(let i = 0; i < n; i++) {
-            let index = Math.floor(this.size * Math.random());
-            array.push(this.data[index]);
-        }
-        array.push();
-        return new NumberSet(array);
-    }
-
     get size(): number {
         return this.data.length;
     }
 
+    // Returns a sorted array representation of the dataset.
     get array(): number[] {
         return this.data;
     }
@@ -127,6 +118,20 @@ export default class NumberSet {
         const filtered: Map<number, number> = new Map(array.filter(item => item[1] === max));
 
         return filtered;
+    }
+
+    get sample(): number {
+        let index = Math.floor(this.size * Math.random());
+        return this.data[index];
+    }
+
+    samples(n: number): NumberSet {
+        let array: number[] = [];
+        for(let i = 0; i < n; i++) {
+            array.push(this.sample);
+        }
+        array.push();
+        return new NumberSet(array);
     }
 
     *[Symbol.iterator](): Generator<number, void, unknown> {
