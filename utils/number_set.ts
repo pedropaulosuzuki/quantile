@@ -125,9 +125,9 @@ export default class NumberSet {
         return this.data[index];
     }
 
-    samples(n: number): NumberSet {
+    samples(amount: number): NumberSet {
         let array: number[] = [];
-        for(let i = 0; i < n; i++) {
+        for(let i = 0; i < amount; i++) {
             array.push(this.sample);
         }
         array.push();
