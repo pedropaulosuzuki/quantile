@@ -2,7 +2,7 @@ import NumberSet from "../number_set.ts";
 import { DiscreteDistribution } from "../interfaces/distribution.ts";
 
 class NegativeBinomial implements DiscreteDistribution {
-    constructor(private failures: number, private p: number) {
+    constructor(private successes: number, private p: number) {
         throw new Error('Not implemented.');
     }
 
@@ -39,25 +39,6 @@ class NegativeBinomial implements DiscreteDistribution {
     // Returns n samples from the negative binomial distribution
     samples(size: number = 100): NumberSet {
         throw new Error('Not implemented.');
-
-        /* 
-        if(n <= 0) {
-            throw new Error('Insert a positive number of successes for the negative binomial distribution.');
-        }
-
-        if(p <= 0 || p > 1) {
-            throw new Error('Insert a probability between 0 and 1 for the negative binomial distribution.');
-        }
-
-        let successes = 0, failures = 0;
-
-        while(successes < n) {
-            Math.random() < p ? successes++ : failures++;
-        }
-
-        return failures;
-        */
-
         return new NumberSet([]);
     }
 
@@ -74,8 +55,8 @@ class NegativeBinomial implements DiscreteDistribution {
     }
 }
 
-export default function negative_binomial(failures: number, p: number): NegativeBinomial {
-    if (failures <= 0) throw new Error('Insert a positive number of failures for the negative binomial distribution.');
-    if (p <= 0 || p > 1) throw new Error('Insert a valid success probability for the negative binomial distribution. Use a value between 0 and 1.');
-    return new NegativeBinomial(failures, p);
+export default function negative_binomial(successes: number, success_probability: number): NegativeBinomial {
+    if (successes <= 0) throw new Error('Insert a positive number of successes for the negative binomial distribution.');
+    if (success_probability <= 0 || success_probability > 1) throw new Error('Insert a success probability between 0 and 1 for the negative binomial distribution.');
+    return new NegativeBinomial(successes, success_probability);
 };
