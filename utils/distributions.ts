@@ -12,8 +12,9 @@ import log_normal from './distributions/log_normal.ts';  // not implemented
 import negative_binomial from './distributions/negative_binomial.ts';  // not implemented
 import poisson from './distributions/poisson.ts';  // not implemented
 import rayleigh from './distributions/rayleigh.ts'; // not implemented
+import skellam from './distributions/skellam.ts'; // not implemented
 import t from './distributions/t.ts'  // not implemented
 import uniform from './distributions/uniform.ts';
 import weibull from './distributions/weibull.ts'; // not implemented
 
-export default {bernoulli, beta, binomial, chi_squared, exponential, f, gaussian, hypergeometric, kumaraswamy, logistic, log_normal, negative_binomial, poisson, rayleigh, t, uniform, weibull};
+export default {bernoulli, beta, binomial, chi_squared, exponential, f, gaussian, hypergeometric, kumaraswamy, logistic, log_normal, negative_binomial, poisson, rayleigh, skellam, t, uniform, weibull};
