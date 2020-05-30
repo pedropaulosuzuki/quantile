@@ -2,14 +2,13 @@ import NumberSet from "../number_set.ts";
 import { ContinuousDistribution } from "../interfaces/distribution.ts";
 
 class Logistic implements ContinuousDistribution {
-    constructor(private _mean: number, private scale: number) {
+    constructor(private location: number, private scale: number) {
         throw new Error('Not implemented.');
     }
 
     // returns the mean of the logistic distribution
     get mean(): number {
-        throw new Error('Not implemented.');
-        return 0;
+        return this.location;
     }
 
     // returns the variance of the logistic distribution
@@ -20,14 +19,12 @@ class Logistic implements ContinuousDistribution {
 
     // returns the median of the logistic distribution
     get median(): number {
-        throw new Error('Not implemented.');
-        return 0;
+        return this.location;
     }
 
     // returns the mode of the logistic distribution
     get mode(): number {
-        throw new Error('Not implemented.');
-        return 0;
+        return this.location;
     }
 
     // Returns one sample from the logistic distribution

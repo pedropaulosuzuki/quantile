@@ -2,32 +2,32 @@ import NumberSet from '../number_set.ts';
 import { ContinuousDistribution } from '../interfaces/distribution.ts';
 
 class Gaussian implements ContinuousDistribution {
-    constructor(private _mean: number = 0, private stdev: number = 1) {
+    constructor(private location: number = 0, private scale: number = 1) {
     }
 
     // returns the mean of the gaussian distribution
     get mean(): number {
-        return this._mean;
+        return this.location;
     }
 
     // returns the variance of the gaussian distribution
     get variance(): number {
-        return this.stdev ** 2;
+        return this.scale ** 2;
     }
 
     // returns the mean of the gaussian distribution
     get median(): number {
-        return this._mean;
+        return this.location;
     }
 
     // returns the mode of the gaussian distribution
     get mode(): number {
-        return this._mean;
+        return this.location;
     }
 
     // Returns one sample from the gaussian distribution
     get sample(): number {
-        return this._mean + this.stdev * (-2 * Math.log(Math.random())) ** 0.5 * Math.cos(2 * Math.PI * Math.random());
+        return this.location + this.scale * (-2 * Math.log(Math.random())) ** 0.5 * Math.cos(2 * Math.PI * Math.random());
     }
 
     // Returns n samples from the gaussian distribution
@@ -43,7 +43,7 @@ class Gaussian implements ContinuousDistribution {
 
     // returns the probability density function for the gaussian distribution
     get pdf(): (x: number) => number {
-        return x => 1 / (this.stdev * (2 * Math.PI) ** 0.5) * Math.exp(-1 / 2 * (x - this._mean) ** 2 / this.variance); // to implement
+        return x => 1 / (this.scale * (2 * Math.PI) ** 0.5) * Math.exp(-1 / 2 * (x - this.location) ** 2 / this.variance); // to implement
     }
 
     // returns the cumulative distribution function for the gaussian distribution
