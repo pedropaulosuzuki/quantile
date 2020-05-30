@@ -4,7 +4,7 @@ export default class NumberSet {
     // helper function for handling operations on empty numbersets.
     private throwIfEmpty = (operation: string) => {
         if(this.size === 0) {
-            throw new Error(`Cannot get ${operation} from an empty NumberSet.`);
+            throw new Error(`Cannot get ${operation} from an empty numberset.`);
         }
     };
 
@@ -41,7 +41,7 @@ export default class NumberSet {
     }
 
     quantile(q: number): number {
-        // cannot calculate 'q' quantile of empty NumberSet.
+        // cannot calculate 'q' quantile of empty numbernet.
         this.throwIfEmpty('quantile');
 
         // parameter 'q' must be located between 0 and 1. Otherwise throws an exception.
@@ -49,12 +49,12 @@ export default class NumberSet {
             throw new Error('Quantile is out of bounds. Enter a number between 0 and 1');
         }
         
-        // returns the first element of the NumberSet
+        // returns the first element of the numberset
         if(q === 0 || this.size === 1) {
             return this.data[0];
         }
 
-        // returns the last element of the NumberSet
+        // returns the last element of the numberset
         if(q === 1) {
             return this.data[this.size - 1];
         }
@@ -71,12 +71,12 @@ export default class NumberSet {
         return new NumberSet(this.data.filter(x => (x >= start) && (x <= end)));
     }
 
-    // returns the size of the NumberSet.
+    // returns the size of the numberset.
     get size(): number {
         return this.data.length;
     }
 
-    // returns a sorted array representation of the dataset.
+    // returns a sorted array representation of the numberset.
     get array(): number[] {
         // in the current implementation, this.data is already sorted.
         return this.data;
@@ -89,7 +89,7 @@ export default class NumberSet {
     get datamap(): Map<number, number> {
         const map = new Map();
 
-        // counts how many times each number appears in the NumberSet.
+        // counts how many times each number appears in the numberset.
         for(const number of this.data) {
             if(map.has(number)) {
                 map.set(number, map.get(number) + 1);
@@ -102,26 +102,26 @@ export default class NumberSet {
     }
 
     get mean(): number {
-        // cannot get mean of empty set.
+        // cannot get mean of empty numberset.
         this.throwIfEmpty('mean');
         return this.sum() / this.size;
     }
 
     get variance(): number {
-        // cannot get variance of empty set.
+        // cannot get variance of empty numberset.
         this.throwIfEmpty('variance');
 
         return this.sum(x => x ** 2) / this.size - this.mean ** 2;
     }
 
     get median(): number {
-        // cannot get median of empty set.
+        // cannot get median of empty numberset.
         this.throwIfEmpty('median');
         return this.quantile(0.5);
     }
 
     get mode(): Map<number, number> {
-        // cannot get mode of empty set.
+        // cannot get mode of empty numberset.
         this.throwIfEmpty('mode');
         let map = this.datamap;
 
@@ -132,7 +132,7 @@ export default class NumberSet {
         return filtered;
     }
 
-    // returns an unbiased single sample from the NumberSet, but does not remove it from the original set.
+    // returns an unbiased single sample from the numberset, but does not remove it from the original set.
     get sample(): number {
         let index = Math.floor(this.size * Math.random());
         return this.data[index];
