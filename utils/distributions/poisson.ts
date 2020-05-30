@@ -2,20 +2,18 @@ import { DiscreteDistribution } from "../interfaces/distribution.ts";
 import NumberSet from "../number_set.ts";
 
 class Poisson implements DiscreteDistribution {
-    constructor(private lambda: number) {
+    constructor(private rate: number) {
         throw new Error('Not implemented.');
     }
 
     // returns the mean of the poisson distribution
     get mean(): number {
-        throw new Error('Not implemented.');
-        return 0;
+        return this.rate;
     }
 
     // returns the variance of the poisson distribution
     get variance(): number {
-        throw new Error('Not implemented.');
-        return 0;
+        return this.rate;
     }
 
     // returns the median of the poisson distribution
@@ -55,6 +53,6 @@ class Poisson implements DiscreteDistribution {
     }
 }
 
-export default function poisson(lambda: number): Poisson {
-    return new Poisson(lambda);
+export default function poisson(rate: number): Poisson {
+    return new Poisson(rate);
 };
