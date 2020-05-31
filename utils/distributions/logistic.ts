@@ -3,7 +3,6 @@ import { ContinuousDistribution } from "../interfaces/distribution.ts";
 
 class Logistic implements ContinuousDistribution {
     constructor(private location: number, private scale: number) {
-        throw new Error('Not implemented.');
     }
 
     // returns the mean of the logistic distribution
@@ -13,8 +12,7 @@ class Logistic implements ContinuousDistribution {
 
     // returns the variance of the logistic distribution
     get variance(): number {
-        throw new Error('Not implemented.');
-        return 0;
+        return (this.scale * Math.PI) ** 2 / 3;
     }
 
     // returns the median of the logistic distribution
@@ -29,8 +27,8 @@ class Logistic implements ContinuousDistribution {
 
     // Returns one sample from the logistic distribution
     get sample(): number {
-        throw new Error('Not implemented.');
-        return 0;
+        let random = Math.random();
+        return this.location + this.scale * Math.log(random / (1 - random));
     }
     
     // Returns n samples from the logistic distribution
@@ -59,6 +57,6 @@ class Logistic implements ContinuousDistribution {
     }
 }
 
-export default function logistic(mean: number, scale: number): Logistic {
-    return new Logistic(mean, scale);
+export default function logistic(mean: number, standard_deviation: number): Logistic {
+    return new Logistic(mean, standard_deviation * 3 ** 0.5 / Math.PI);
 };
