@@ -46,14 +46,15 @@ class Logistic implements ContinuousDistribution {
 
     // returns the probability density function for the logistic distribution
     get pdf(): (x: number) => number {
-        throw new Error('Not implemented.');
-        return x => x;
+        return x => {
+            let factor = Math.exp((this.location - x) / this.scale); 
+            return factor / (this.scale * (1 + factor) ** 2);
+        };
     }
 
     // returns the cumulative distribution function for the log-normal distribution
     get cdf(): (x: number) => number {
-        throw new Error('Not implemented.');
-        return x => x;
+        return x => 1 / (1 + Math.exp((this.location - x) / this.scale));
     }
 }
 

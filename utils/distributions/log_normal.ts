@@ -62,6 +62,7 @@ class LogNormal implements ContinuousDistribution {
     }
 }
 
-export default function log_normal(mean: number, stdev: number): LogNormal {
-    return new LogNormal(mean, stdev);
+export default function log_normal(mean: number, standard_deviation: number): LogNormal {
+    if (standard_deviation < 0) throw new Error('Insert a positive standard deviation for the log-normal distribution.');
+    return new LogNormal(mean, standard_deviation);
 };
