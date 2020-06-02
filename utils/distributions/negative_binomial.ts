@@ -63,7 +63,7 @@ class NegativeBinomial implements DiscreteDistribution {
 }
 
 export default function negative_binomial(successes: number, success_probability: number): NegativeBinomial {
-    if (successes <= 0) throw new Error('Insert a positive number of successes for the negative binomial distribution.');
-    if (success_probability <= 0 || success_probability > 1) throw new Error('Insert a success probability between 0 and 1 for the negative binomial distribution.');
+    if (successes <= 0) throw new RangeError('Insert a positive number of successes for the negative binomial distribution.');
+    if (success_probability <= 0 || success_probability > 1) throw new RangeError('Insert a success probability between 0 and 1 for the negative binomial distribution.');
     return new NegativeBinomial(successes, success_probability);
 };

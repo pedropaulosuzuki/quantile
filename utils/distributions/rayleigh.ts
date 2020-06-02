@@ -56,7 +56,7 @@ class Rayleigh implements ContinuousDistribution {
 }
 
 export default function rayleigh(scale: number = 1): Rayleigh {
-    if (scale <= 0) throw new Error('Please insert a positive scale parameter for the rayleigh distribution.');
+    if (scale <= 0) throw new RangeError('Please insert a positive scale parameter for the rayleigh distribution.');
 
     return new Rayleigh(scale);
 }

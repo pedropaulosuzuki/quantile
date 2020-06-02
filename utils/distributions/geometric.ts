@@ -58,6 +58,6 @@ class Geometric implements DiscreteDistribution {
 }
 
 export default function geometric(success_probability: number): Geometric {
-    if (success_probability < 0 || success_probability > 1) throw new Error('Insert a success probability between 0 and 1 for the geometric distribution.');
+    if (success_probability < 0 || success_probability > 1) throw new RangeError('Insert a success probability between 0 and 1 for the geometric distribution.');
     return new Geometric(success_probability);
 };

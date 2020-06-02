@@ -57,6 +57,6 @@ class Gaussian implements ContinuousDistribution {
 
 // function declaration uses variance, class declaration uses stdev
 export default function gaussian(mean: number = 0, standard_deviation: number = 1): Gaussian {
-    if(standard_deviation <= 0) throw new Error('Insert a positive standard deviation for the gaussian distribution.');
+    if(standard_deviation <= 0) throw new RangeError('Insert a positive standard deviation for the gaussian distribution.');
     return new Gaussian(mean, standard_deviation);
 };
