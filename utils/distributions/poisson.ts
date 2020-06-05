@@ -1,5 +1,5 @@
 import { DiscreteDistribution } from "../interfaces/distribution.ts";
-import NumberSet from "../number_set.ts";
+import NumberSet from "../numberset.ts";
 
 class Poisson implements DiscreteDistribution {
     constructor(private rate: number) {

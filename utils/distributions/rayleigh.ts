@@ -1,5 +1,5 @@
 import { ContinuousDistribution } from '../interfaces/distribution.ts'
-import NumberSet from '../number_set.ts';
+import NumberSet from '../numberset.ts';
 
 class Rayleigh implements ContinuousDistribution {
     constructor(private scale: number = 1) {

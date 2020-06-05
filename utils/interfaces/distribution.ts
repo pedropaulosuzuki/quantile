@@ -1,4 +1,4 @@
-import NumberSet from "../number_set.ts";
+import NumberSet from "../numberset.ts";
 
 export interface DiscreteDistribution {
     readonly mean: number,

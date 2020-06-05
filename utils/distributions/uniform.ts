@@ -1,4 +1,4 @@
-import NumberSet from '../number_set.ts';
+import NumberSet from '../numberset.ts';
 import { ContinuousDistribution } from '../interfaces/distribution.ts';
 
 class Uniform implements ContinuousDistribution {
