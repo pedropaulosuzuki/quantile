@@ -16,5 +16,5 @@ export default interface NumberSet {
     readonly sample: number;
     readonly samples: (size: number) => NumberSet;
     [Symbol.iterator](): Generator<number, void, unknown>;
-    toString(): string;
+    readonly toString: () => string;
 }

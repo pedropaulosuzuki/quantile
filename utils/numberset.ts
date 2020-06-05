@@ -183,7 +183,7 @@ export default class NumberSet implements numberset {
         }
     }
     
-    toString(): string {
-        return 'Numberset: <' + this.array.toString().split(',').join(', ') + '>';
+    get toString(): () => string {
+        return () => 'Numberset: <' + this.array.toString().split(',').join(', ') + '>';
     }
 }
