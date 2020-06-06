@@ -3,7 +3,7 @@ import numberset from './interfaces/numberset.ts';
 export default class NumberSet implements numberset {
     private data: number[] = [];
 
-    constructor(array: number[], public name: string = 'Numberset') {
+    constructor(array: number[], public name: string = '') {
         // sorts the data before insertion, in order to falicitate new operations later. Implementation details may change.
         this.data = array.sort((x, y) => x - y);
     }
