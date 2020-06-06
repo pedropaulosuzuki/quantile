@@ -1,4 +1,5 @@
 export default interface NumberSet {
+    name: string;
     readonly push: (array: number[]) => NumberSet;
     readonly apply: (fn: (element: number) => number) => NumberSet;
     readonly map: (fn: (element: number) => number) => NumberSet;

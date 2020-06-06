@@ -1,6 +1,7 @@
 import NumberSet from '../../numberset.ts';
 
 // constructor
+// name
 // push
 // apply
 // map
