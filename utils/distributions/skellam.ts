@@ -1,3 +1,6 @@
+import Numberset from "../numberset.ts";
+import { DiscreteDistribution } from "../interfaces/distribution.ts";
+
 class Skellam {
     constructor() {
 

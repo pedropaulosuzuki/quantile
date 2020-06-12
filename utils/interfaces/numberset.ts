@@ -1,11 +1,11 @@
-export default interface NumberSet {
+export default interface Numberset {
     name: string;
-    readonly push: (array: number[]) => NumberSet;
-    readonly apply: (fn: (element: number) => number) => NumberSet;
-    readonly map: (fn: (element: number) => number) => NumberSet;
+    readonly push: (array: number[]) => Numberset;
+    readonly apply: (fn: (element: number) => number) => Numberset;
+    readonly map: (fn: (element: number) => number) => Numberset;
     readonly sum_fn: (fn: (element: number) => number) => number;
     readonly quantile: (q: number) => number;
-    readonly range: (start: number, end: number) => NumberSet;
+    readonly range: (start: number, end: number) => Numberset;
     readonly size: number;
     readonly array: number[];
     readonly datamap: Map<number, number>;
@@ -15,7 +15,7 @@ export default interface NumberSet {
     readonly median: number;
     readonly mode: Map<number, number>;
     readonly sample: number;
-    readonly samples: (size: number) => NumberSet;
+    readonly samples: (size: number) => Numberset;
     [Symbol.iterator](): Generator<number, void, unknown>;
     readonly toString: () => string;
 }

@@ -1,5 +1,5 @@
+import Numberset from '../numberset.ts';
 import { ContinuousDistribution } from '../interfaces/distribution.ts'
-import NumberSet from '../numberset.ts';
 
 class Rayleigh implements ContinuousDistribution {
     constructor(private scale: number = 1) {
@@ -32,7 +32,7 @@ class Rayleigh implements ContinuousDistribution {
     }
 
     // Returns n samples from the rayleigh distribution
-    get samples(): (size: number) => NumberSet {
+    get samples(): (size: number) => Numberset {
         return (size: number = 100) => {
             let array: number[] = [];
             
@@ -40,7 +40,7 @@ class Rayleigh implements ContinuousDistribution {
                 array.push(this.sample);
             }
             
-            return new NumberSet(array);
+            return new Numberset(array);
         }
     }
 

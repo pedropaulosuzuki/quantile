@@ -1,4 +1,4 @@
-import NumberSet from '../../numberset.ts';
+import Numberset from '../../numberset.ts';
 
 // constructor
 // name

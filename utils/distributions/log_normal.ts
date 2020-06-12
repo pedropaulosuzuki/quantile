@@ -1,4 +1,4 @@
-import NumberSet from "../numberset.ts";
+import Numberset from "../numberset.ts";
 import { ContinuousDistribution } from "../interfaces/distribution.ts";
 
 class LogNormal implements ContinuousDistribution {
@@ -37,7 +37,7 @@ class LogNormal implements ContinuousDistribution {
     }
 
     // Returns n samples from the log-normal distribution
-    get samples(): (size: number) => NumberSet {
+    get samples(): (size: number) => Numberset {
         return (size: number = 100) => {
             let array: number[] = [];
             
@@ -45,7 +45,7 @@ class LogNormal implements ContinuousDistribution {
                 array.push(this.sample);
             }
             
-            return new NumberSet(array);
+            return new Numberset(array);
         }
     }
 

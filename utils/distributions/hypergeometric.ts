@@ -1,4 +1,4 @@
-import NumberSet from "../numberset.ts";
+import Numberset from "../numberset.ts";
 import { DiscreteDistribution } from "../interfaces/distribution.ts";
 
 class Hypergeometric implements DiscreteDistribution {
@@ -37,7 +37,7 @@ class Hypergeometric implements DiscreteDistribution {
     }
 
     // Returns n samples from the hypergeometric distribution
-    get samples(): (size: number) => NumberSet {
+    get samples(): (size: number) => Numberset {
         return (size: number = 100) => {
             let array: number[] = [];
             
@@ -45,7 +45,7 @@ class Hypergeometric implements DiscreteDistribution {
                 array.push(this.sample);
             }
             
-            return new NumberSet(array);
+            return new Numberset(array);
         }
     }
 

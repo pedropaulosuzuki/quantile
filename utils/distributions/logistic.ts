@@ -1,4 +1,4 @@
-import NumberSet from "../numberset.ts";
+import Numberset from "../numberset.ts";
 import { ContinuousDistribution } from "../interfaces/distribution.ts";
 
 class Logistic implements ContinuousDistribution {
@@ -32,7 +32,7 @@ class Logistic implements ContinuousDistribution {
     }
     
     // Returns n samples from the logistic distribution
-    get samples(): (size: number) => NumberSet {
+    get samples(): (size: number) => Numberset {
         return (size: number = 100) => {
             let array: number[] = [];
             
@@ -40,7 +40,7 @@ class Logistic implements ContinuousDistribution {
                 array.push(this.sample);
             }
             
-            return new NumberSet(array);
+            return new Numberset(array);
         }
     }
 
