@@ -14,21 +14,21 @@ import quantile from './quantile.ts';
 
 const { Numberset } = quantile;
 
-let data = new Numberset([1, 2, 3, 4, 5, 6, 7]);
+const data = new Numberset('data', [1, 2, 3, 4, 5, 6, 7]);
+
+const size = data.size;
+const mean = data.mean;
+const median = data.median;
+const mode = data.mode;
+const variance = data.variance;
+const sum = data.sum;
+const q0 = data.quantile(0);
+const q1 = data.quantile(0.25);
+const q2 = data.quantile(0.5);
+const q3 = data.quantile(0.75);
+const q4 = data.quantile(1);
   
-let size = data.size;
-let mean = data.mean;
-let median = data.median;
-let mode = data.mode;
-let variance = data.variance;
-let sum = data.sum;
-let q0 = data.quantile(0);
-let q1 = data.quantile(0.25);
-let q2 = data.quantile(0.5);
-let q3 = data.quantile(0.75);
-let q4 = data.quantile(1);
-  
-  console.log({size, mean, median, mode, variance, sum, q0, q1, q2, q3, q4});
+console.log({size, mean, median, mode, variance, sum, q0, q1, q2, q3, q4});
 ```
 
 #### It is also possible to:
@@ -39,7 +39,7 @@ import quantile from './quantile.ts';
 
 const { Numberset } = quantile;
 
-let data = new Numberset([1, 2, 3, 4, 5, 6, 7]);
+const data = new Numberset('data', [1, 2, 3, 4, 5, 6, 7]);
 
 data.apply(x => x - data.mean);
 
@@ -51,9 +51,9 @@ import quantile from './quantile.ts';
 
 const { Numberset } = quantile;
 
-let data = new Numberset([1, 2, 3, 4, 5, 6, 7]);
+const data = new Numberset('data', [1, 2, 3, 4, 5, 6, 7]);
   
-let data_squared = data.map(x => x ** 2);
+const data_squared = data.map(x => x ** 2);
 
 console.log('mean', data_squared.array); // [1, 4, 9, 16, 25, 36, 49]
 ```
@@ -63,12 +63,12 @@ import quantile from './quantile.ts';
 
 const { Numberset } = quantile;
 
-let data = new Numberset([1, 2, 3, 4, 5, 6, 7]);
+const data = new Numberset('data', [1, 2, 3, 4, 5, 6, 7]);
 
-let q1 = data.quantile(0.25);
-let q3 = data.quantile(0.75);
+const q1 = data.quantile(0.25);
+const q3 = data.quantile(0.75);
 
-let filtered = data.range(q1, q3);
+const filtered = data.range(q1, q3);
 
 console.log(filtered.array); // [3, 4, 5]
 ```
@@ -78,13 +78,13 @@ import quantile from './quantile.ts';
 
 const { Numberset } = quantile;
 
-let data = new Numberset([1, 2, 3, 4, 5, 6, 7]);
+const data = new Numberset('data', [1, 2, 3, 4, 5, 6, 7]);
   
-let sample = data.sample;
-let samples = data.samples(100);
+const sample = data.sample;
+const samples = data.samples('sample_500', 500);
 
 console.log({sample});
-console.log('100 samples:', sample.datamap);
+console.log('500 samples:', samples.datamap);
 ```
 Get an array or a JS Map representation of the numberset:
 ```ts
@@ -92,10 +92,10 @@ import quantile from './quantile.ts';
 
 const { Numberset } = quantile;
 
-let data = new Numberset([1, 2, 3, 4, 5, 6, 7]);
+const data = new Numberset('data', [1, 2, 3, 4, 5, 6, 7]);
   
-let array = data.array;
-let datamap = data.datamap;
+const array = data.array;
+const datamap = data.datamap;
 
 console.log({array, datamap});
 ```
@@ -105,9 +105,9 @@ import quantile from './quantile.ts';
 
 const { Numberset } = quantile;
 
-let data = new Numberset([1, 2, 3, 4, 5, 6, 7]);
+const data = new Numberset('data', [1, 2, 3, 4, 5, 6, 7]);
   
-let sum_cubes = data.sum_fn(x => x ** 3);
+const sum_cubes = data.sum_fn(x => x ** 3);
 
 console.log({sum_cubes}); // { sum_cubes: 784 }
 ```
