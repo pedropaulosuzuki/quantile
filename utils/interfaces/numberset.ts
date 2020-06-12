@@ -15,7 +15,7 @@ export default interface Numberset {
     readonly median: number;
     readonly mode: Map<number, number>;
     readonly sample: number;
-    readonly samples: (size: number) => Numberset;
+    readonly samples: (name: string, size: number) => Numberset;
     [Symbol.iterator](): Generator<number, void, unknown>;
     readonly toString: () => string;
 }

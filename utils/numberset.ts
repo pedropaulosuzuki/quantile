@@ -1,9 +1,9 @@
-import numberset from './interfaces/numberset.ts';
+import NumberSet from './interfaces/numberset.ts';
 
-export default class Numberset implements numberset {
+export default class Numberset implements NumberSet {
     private data: number[] = [];
 
-    constructor(array: number[], public name: string = '') {
+    constructor(public name: string, array: number[] = []) {
         // sorts the data before insertion, in order to falicitate new operations later. Implementation details may change.
         this.data = array.sort((x, y) => x - y);
     }
@@ -34,7 +34,7 @@ export default class Numberset implements numberset {
     get map(): (fn: (element: number) => number) => Numberset {
         return (fn: (element: number) => number) => {
             // does not mutate the current numberset.
-            return new Numberset(this.data.map(fn));
+            return new Numberset(this.name, this.data.map(fn));
         }
         
     }
@@ -79,7 +79,7 @@ export default class Numberset implements numberset {
     // filters a range of numbers in the numberset.
     get range(): (start: number, end: number) => Numberset {
         return (start: number, end: number) => {
-            return new Numberset(this.data.filter(x => (x >= start) && (x <= end)));
+            return new Numberset(this.name, this.data.filter(x => (x >= start) && (x <= end)));
         }
     }
 
@@ -162,15 +162,15 @@ export default class Numberset implements numberset {
         return this.data[index];
     }
 
-    get samples(): (size: number) => Numberset {
-        return (size: number = 100) => {
+    get samples(): (name: string, size: number) => Numberset {
+        return (name: string, size: number = 100) => {
             let array: number[] = [];
             
             for(let k = 0; k < size; k++) {
                 array.push(this.sample);
             }
             
-            return new Numberset(array);
+            return new Numberset(name, array);
         }
     }
 
