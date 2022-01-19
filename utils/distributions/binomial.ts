@@ -3,7 +3,13 @@ import { DiscreteDistribution } from '../interfaces/distribution.ts';
 
 class Binomial implements DiscreteDistribution {
     constructor(private p: number = 0.5, private n: number = 10) {
+        if(n <= 0 || !Number.isInteger(n)) {
+            throw new Error('The number of trials in a binomial distribution must be a natural number.');
+        }
 
+        if(p < 0 || p > 1) {
+            throw new RangeError('Insert a probability between 0 and 1 for the binomial distribution.');
+        }
     }
 
     // returns the mean of the binomial distribution
@@ -24,8 +30,7 @@ class Binomial implements DiscreteDistribution {
 
     // returns the mode of the binomial distribution
     get mode(): number {
-        throw new Error('Not implemented.');
-        return 0; // to implement
+        return this.p === 1 ? this.n : this.p === 0 ? 0 : Math.floor((this.n + 1) * this.p);
     }
 
     // Returns one sample from the binomial distribution
@@ -66,8 +71,6 @@ class Binomial implements DiscreteDistribution {
     }
 }
 
-export default function binomial(p: number = 0.5, n: number = 10): Binomial {
-    if(p < 0 || p > 1) throw new RangeError('Insert a probability between 0 and 1 for the binomial distribution.');
-    if(n <= 0) throw new RangeError('Insert a positive number of trials for the binomial distribution.');
+export default function binomial(p: number = 0.5, n: number = 10): Binomial {;
     return new Binomial(p, n);
 };
