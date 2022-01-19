@@ -3,7 +3,9 @@ import { ContinuousDistribution } from "../interfaces/distribution.ts";
 
 class Kumaraswamy implements ContinuousDistribution {
     constructor(private a: number, private b: number) {
-        throw new Error('Not implemented.');
+        if(a <= 0 || b <= 0) {
+            throw new Error('Parameters out of range. Kumaraswamy parameters must be positive.');
+        }
     }
 
     // returns the mean of the kumaraswamy distribution
@@ -20,8 +22,7 @@ class Kumaraswamy implements ContinuousDistribution {
 
     // returns the median of the kumaraswamy distribution
     get median(): number {
-        throw new Error('Not implemented.');
-        return 0;
+        return (1 - (1 / 2 ** (1 / this.b ))) ** (1 / this.a);
     }
 
     // returns the mode of the kumaraswamy distribution
@@ -51,14 +52,12 @@ class Kumaraswamy implements ContinuousDistribution {
 
     // returns the probability density function for the kumaraswamy distribution
     get pdf(): (x: number) => number {
-        throw new Error('Not implemented.');
-        return x => x;
+        return x => x < 0 ? 0 : x > 0 ? 0 : this.a * this.b * x ** (this.a - 1) * (1 - x ** this.a) ** (this.b - 1);
     }
 
     // returns the cumulative distribution function for the kumaraswamy distribution
     get cdf(): (x: number) => number {
-        throw new Error('Not implemented.');
-        return x => x;
+        return x => x < 0 ? 0 : x > 0 ? 1 : 1 - (1 - x ** this.a) ** this.b;
     }
 }
 
