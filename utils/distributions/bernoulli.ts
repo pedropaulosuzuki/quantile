@@ -3,7 +3,9 @@ import { DiscreteDistribution } from '../interfaces/distribution.ts';
 
 class Bernoulli implements DiscreteDistribution {
     constructor(private p = 0.5) {
-
+        if(p < 0 || p > 1) {
+            throw new RangeError('Insert a probability between 0 and 1 for the bernoulli distribution.');
+        }
     }
 
     // returns the mean of the bernoulli distribution
@@ -59,6 +61,5 @@ class Bernoulli implements DiscreteDistribution {
 }
 
 export default function bernoulli(p: number = 0.5): Bernoulli {
-    if(p < 0 || p > 1) throw new RangeError('Insert a probability between 0 and 1 for the bernoulli distribution.');
     return new Bernoulli(p);
 };
