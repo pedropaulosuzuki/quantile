@@ -28,7 +28,7 @@ class Uniform implements ContinuousDistribution {
 
     // Returns one sample from the uniform distribution
     get sample(): number {
-        return this.start + this.end * Math.random();
+        return this.start + (this.end - this.start) * Math.random();
     }
     
     // Returns n samples from the uniform distribution
@@ -46,8 +46,7 @@ class Uniform implements ContinuousDistribution {
 
     // returns the probability density function for the uniform distribution
     get pdf(): (x: number) => number {
-        const value = 1 / (this.end - this.start);
-        return x => x < this.start || x > this.end ? 0 : value;
+        return x => x < this.start || x > this.end ? 0 : 1 / (this.end - this.start);
     }
 
     // returns the cumulative distribution function for the uniform distribution
