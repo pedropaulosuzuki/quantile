@@ -42,7 +42,7 @@ export default class Numberset implements NumberSet {
     // sums all the elements in the numberset after applying a function to each one.
     get sum_fn(): (fn: (element: number) => number) => number {
         return (fn: (element: number) => number = element => element) => {
-            return this.data.reduce((x: number, y: number) => x + fn(y), 0);
+            return Math.sumPrecise(this.data.map((x: number) => fn(x)));
         }
     }
 
@@ -118,7 +118,7 @@ export default class Numberset implements NumberSet {
         // cannot get sum of empty numberset.
         if(this.size === 0) throw new Error(`Cannot get sum from an empty numberset.`);
 
-        return this.data.reduce((x: number, y: number) => x + y, 0);
+        return Math.sumPrecise(this.data);
     }
 
     get mean(): number {
@@ -132,7 +132,7 @@ export default class Numberset implements NumberSet {
         // cannot get variance of empty numberset.
         if(this.size === 0) throw new Error(`Cannot get variance from an empty numberset.`);
 
-        return this.sum_fn(x => x ** 2) / this.size - this.mean ** 2;
+        return this.sum_fn(x => x * x) / this.size - (this.mean * this.mean);
     }
 
     get median(): number {
